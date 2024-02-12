@@ -1,0 +1,276 @@
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #09090b;
+  overflow: hidden;
+}
+
+body {
+  text-align: center;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  font-size: 22px;
+}
+
+h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px #d4d4d8;
+  margin-bottom: 0px;
+  opacity: 0;
+  animation: fade-in 1s forwards;
+  animation-delay: 0.5s;
+}
+
+#subtitle {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #d4d4d8;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  animation: fade-in 1s forwards;
+  animation-delay: 0.8s;
+}
+
+#scoreDisplay {
+  display: none;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  opacity: 0;
+  animation-delay: 1.1s;
+}
+
+#defaultCanvas0 {
+  border: 1px solid white;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px 5px #27272a;
+  opacity: 0;
+  animation: fade-in 1s forwards;
+  animation-delay: 1.4s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#start {
+  border-radius: 100%;
+  padding: 1rem;
+  color: white;
+  width: 4rem;
+  height: 4rem;
+  background-color: #09090b;
+  border: 1.5px solid white;
+  position: relative;
+  margin-top: 1rem;
+}
+
+#game-over {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#game-won {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#restart {
+  border-radius: 100%;
+  padding: 1rem;
+  color: white;
+  width: 6rem;
+  height: 6rem;
+  background-color: fff;
+  border: 1.5px solid rgb(220, 38, 38, 0.9);
+  position: relative;
+}
+
+#restart > svg {
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  stroke: rgb(220, 38, 38, 0.9);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  scale: 1;
+  transition: all 0.2s;
+}
+
+#restart:hover {
+  cursor: pointer;
+  animation: scale 0.5s forwards;
+}
+
+#restart:active {
+  animation: scale-down 0.3s forwards;
+}
+
+#restart-win {
+  border-radius: 100%;
+  padding: 1rem;
+  color: white;
+  width: 6rem;
+  height: 6rem;
+  background-color: fff;
+  border: 1.5px solid rgb(80, 200, 120);
+  position: relative;
+}
+
+#restart-win > svg {
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  stroke: rgb(80, 200, 120, 0.9);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  scale: 1;
+  transition: all 0.2s;
+}
+
+#restart-win:hover {
+  cursor: pointer;
+  animation: scale 0.5s forwards;
+}
+
+#restart-win:active {
+  animation: scale-down 0.3s forwards;
+}
+
+#start > svg {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  fill: #09090b;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  scale: 1;
+  transition: all 0.2s;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes scale-down {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(0.9);
+  }
+}
+
+#start:hover {
+  cursor: pointer;
+  animation: scale 0.5s forwards;
+}
+
+#start:active {
+  animation: scale-down 0.3s forwards;
+}
+
+#start:hover svg {
+  fill: white;
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    bottom: 10px;
+  }
+  to {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+#wrong-screen {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgb(220, 38, 38, 0.9);
+  border-radius: 0.5rem;
+
+  animation: animate-in 0.2s ease-out;
+  animation-fill-mode: both;
+
+  z-index: 100;
+}
+
+#right-screen {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgb(80, 200, 120, 0.9);
+  border-radius: 0.5rem;
+
+  animation: animate-in 0.2s ease-out;
+  animation-fill-mode: both;
+
+  z-index: 100;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
